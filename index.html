@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sivanvita Naidu G N - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --lavender: #e6e6fa;
@@ -25,21 +24,30 @@
             box-sizing: border-box;
         }
 
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            height: 100%;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
             background-color: var(--light-lavender);
             transition: background-color 0.5s ease;
-            overflow-x: hidden;
         }
 
         /* Page container */
         .page {
             display: none;
             min-height: 100vh;
-            padding: 2rem;
+            height: auto;
+            padding: 1rem;
             opacity: 0;
             transition: opacity 0.5s ease;
+            position: relative;
+            overflow: visible;
         }
 
         .page.active {
@@ -51,7 +59,7 @@
         #front-page {
             display: flex;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .left-section {
@@ -59,12 +67,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid white;
@@ -82,19 +90,19 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-button {
-            padding: 1rem 2rem;
+            padding: 1rem 1.8rem;
             background: white;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            width: 250px;
+            width: 220px;
             text-align: center;
             box-shadow: var(--shadow);
         }
@@ -129,8 +137,8 @@
 
         .hover-image {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-radius: 15px;
             object-fit: cover;
             opacity: 0;
@@ -146,15 +154,15 @@
         }
 
         .title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
             text-align: center;
         }
 
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-medium);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             font-style: italic;
         }
@@ -164,18 +172,20 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            padding: 2rem;
+            padding: 0.5rem 1rem;
+            min-height: auto;
+            height: auto;
         }
 
         .back-button {
             position: fixed;
-            top: 2rem;
-            left: 2rem;
+            top: 1rem;
+            left: 1rem;
             padding: 0.5rem 1rem;
             background: white;
             border: none;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 100;
@@ -189,12 +199,18 @@
             transform: translateX(-5px);
         }
 
+        .page-title {
+            font-size: 2rem;
+            margin: 0.5rem 0 1rem 0;
+            text-align: center;
+        }
+
         .timeline {
             position: fixed;
-            right: 3rem;
+            right: 2rem;
             top: 50%;
             transform: translateY(-50%);
-            height: 70vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -209,8 +225,8 @@
         }
 
         .dot {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background-color: #333;
             position: absolute;
@@ -221,8 +237,8 @@
         .dot::after {
             content: '';
             position: absolute;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             border: 2px solid #333;
             top: 50%;
@@ -233,17 +249,17 @@
 
         .timeline-label {
             position: absolute;
-            right: 30px;
+            right: 25px;
             transform: translateY(-50%);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             white-space: nowrap;
         }
 
         .dotted-line {
             position: absolute;
-            bottom: -50px;
+            bottom: -40px;
             width: 4px;
-            height: 50px;
+            height: 40px;
             background: repeating-linear-gradient(to bottom, transparent, transparent 5px, #333 5px, #333 10px);
         }
 
@@ -255,13 +271,13 @@
         .two-column-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin: 0.5rem 0;
         }
 
         .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid currentColor;
             display: inline-block;
@@ -270,13 +286,13 @@
         .education-container, .projects-container {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .education-item, .project-item {
             background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 1.2rem;
+            border-radius: 12px;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
         }
@@ -286,15 +302,15 @@
         }
 
         .education-title, .project-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .education-period, .project-period {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-medium);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         /* Code Chronicles Page */
@@ -305,14 +321,14 @@
         .experience-container {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .experience-item {
             background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 1.2rem;
+            border-radius: 12px;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
         }
@@ -324,14 +340,14 @@
         .technologies {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
         }
 
         .tech-item {
             background: white;
-            padding: 1rem;
-            border-radius: 10px;
+            padding: 0.8rem;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -344,8 +360,8 @@
         }
 
         .tech-icon {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
         }
 
         /* Behind the Syntax Page */
@@ -356,20 +372,20 @@
         .info-pics-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin: 0.5rem 0;
         }
 
         .activities-container {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .activity-item {
             background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 1.2rem;
+            border-radius: 12px;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
         }
@@ -381,12 +397,12 @@
         .collage {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .collage-img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 8px;
             aspect-ratio: 1;
             object-fit: cover;
             transition: transform 0.3s ease;
@@ -416,7 +432,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(15px);
             }
             to {
                 opacity: 1;
@@ -428,6 +444,7 @@
         @media (max-width: 900px) {
             #front-page {
                 flex-direction: column;
+                padding: 1rem;
             }
             
             .title {
@@ -436,6 +453,18 @@
             
             .nav-button {
                 width: 200px;
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .hover-image {
+                width: 220px;
+                height: 220px;
             }
             
             .timeline {
@@ -445,10 +474,58 @@
             .two-column-layout,
             .info-pics-layout {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
             .right-section {
-                min-height: 300px;
+                min-height: 220px;
+                margin-top: 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .inner-page {
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .inner-page {
+                padding-top: 0.5rem;
+            }
+            
+            .page-title {
+                margin: 0.3rem 0 0.8rem 0;
+                font-size: 1.8rem;
+            }
+            
+            .two-column-layout,
+            .info-pics-layout {
+                margin-top: 0.3rem;
+                gap: 1rem;
+            }
+            
+            .education-item, 
+            .project-item, 
+            .experience-item, 
+            .activity-item {
+                padding: 1rem !important;
+            }
+            
+            .education-title, 
+            .project-title {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .timeline {
+                height: 50vh;
             }
         }
     </style>
@@ -480,7 +557,7 @@
     <div id="origin-spark-page" class="page">
         <div class="inner-page">
             <button class="back-button">← Back</button>
-             <h1 class="title">Origin Spark</h1>
+            <h1 class="page-title">Origin Spark</h1>
             
             <div class="two-column-layout">
                 <div>
@@ -540,7 +617,7 @@
     <div id="code-chronicles-page" class="page">
         <div class="inner-page">
             <button class="back-button">← Back</button>
-            <h1 class="title">Code Chronicles</h1>
+            <h1 class="page-title">Code Chronicles</h1>
             
             <div class="two-column-layout">
                 <div>
@@ -610,7 +687,7 @@
     <div id="behind-syntax-page" class="page">
         <div class="inner-page">
             <button class="back-button">← Back</button>
-            <h1 class="title">Behind the Syntax</h1>
+            <h1 class="page-title">Behind the Syntax</h1>
             
             <div class="info-pics-layout">
                 <div class="activities-container">
@@ -694,6 +771,9 @@
                 });
                 
                 document.getElementById(pageId).classList.add('active');
+                
+                // Scroll to top when changing pages
+                window.scrollTo(0, 0);
                 
                 // Change background color based on page
                 switch(pageId) {
