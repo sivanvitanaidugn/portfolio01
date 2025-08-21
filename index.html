@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sivanvita Naidu G N - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --lavender: #e6e6fa;
@@ -163,6 +164,7 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
+            padding: 2rem;
         }
 
         .back-button {
@@ -250,27 +252,46 @@
             background-color: var(--pastel-yellow);
         }
 
-        .education-container {
+        .two-column-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             margin-top: 2rem;
         }
 
-        .education-item {
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid currentColor;
+            display: inline-block;
+        }
+
+        .education-container, .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .education-item, .project-item {
             background: white;
             padding: 1.5rem;
             border-radius: 15px;
             box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
         }
 
-        .education-title {
+        .education-item:hover, .project-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-title, .project-title {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .education-period {
+        .education-period, .project-period {
             font-size: 0.9rem;
             color: var(--text-medium);
             margin-bottom: 1rem;
@@ -282,10 +303,10 @@
         }
 
         .experience-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .experience-item {
@@ -293,6 +314,11 @@
             padding: 1.5rem;
             border-radius: 15px;
             box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
         }
 
         .technologies {
@@ -310,6 +336,11 @@
             align-items: center;
             gap: 0.5rem;
             box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.05);
         }
 
         .tech-icon {
@@ -322,11 +353,17 @@
             background-color: var(--light-rose);
         }
 
-        .activities-container {
+        .info-pics-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             margin-top: 2rem;
+        }
+
+        .activities-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .activity-item {
@@ -334,13 +371,17 @@
             padding: 1.5rem;
             border-radius: 15px;
             box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .activity-item:hover {
+            transform: translateY(-5px);
         }
 
         .collage {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            margin-top: 1rem;
         }
 
         .collage-img {
@@ -348,6 +389,12 @@
             border-radius: 10px;
             aspect-ratio: 1;
             object-fit: cover;
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .collage-img:hover {
+            transform: scale(1.05);
         }
 
         /* Animations */
@@ -394,6 +441,15 @@
             .timeline {
                 display: none;
             }
+            
+            .two-column-layout,
+            .info-pics-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .right-section {
+                min-height: 300px;
+            }
         }
     </style>
 </head>
@@ -426,35 +482,45 @@
             <button class="back-button">← Back</button>
             <h1 class="title">Origin Spark</h1>
             
-            <div class="education-container">
-                <div class="education-item fade-in">
-                    <h3 class="education-title">SASTRA University</h3>
-                    <p class="education-period">2023 • Computer Science & Engineering</p>
-                    <p>Graduated with a degree in Computer Science and Engineering.</p>
+            <div class="two-column-layout">
+                <div>
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-container">
+                        <div class="education-item fade-in">
+                            <h3 class="education-title">SASTRA University</h3>
+                            <p class="education-period">2023 • Computer Science & Engineering</p>
+                            <p>Graduated with a degree in Computer Science and Engineering.</p>
+                        </div>
+                        
+                        <div class="education-item fade-in">
+                            <h3 class="education-title">Sri Chaitanya</h3>
+                            <p class="education-period">MPC</p>
+                            <p>Completed intermediate education with Mathematics, Physics, and Chemistry.</p>
+                        </div>
+                        
+                        <div class="education-item fade-in">
+                            <h3 class="education-title">Narayana</h3>
+                            <p class="education-period">10/10</p>
+                            <p>Completed secondary education with perfect academic record.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="education-item fade-in">
-                    <h3 class="education-title">Sri Chaitanya</h3>
-                    <p class="education-period">MPC</p>
-                    <p>Completed intermediate education with Mathematics, Physics, and Chemistry.</p>
-                </div>
-                
-                <div class="education-item fade-in">
-                    <h3 class="education-title">Narayana</h3>
-                    <p class="education-period">10/10</p>
-                    <p>Completed secondary education with perfect academic record.</p>
-                </div>
-                
-                <div class="education-item fade-in">
-                    <h3 class="education-title">CN Project</h3>
-                    <p class="education-period">Sept 2021 - Jan 2022</p>
-                    <p>Description of computer network project done during university.</p>
-                </div>
-                
-                <div class="education-item fade-in">
-                    <h3 class="education-title">Mini Project</h3>
-                    <p class="education-period">March 2022 - June 2022</p>
-                    <p>Description of mini project completed during studies.</p>
+                <div>
+                    <h2 class="section-title">Projects at Schooling</h2>
+                    <div class="projects-container">
+                        <div class="project-item fade-in">
+                            <h3 class="project-title">CN Project</h3>
+                            <p class="project-period">Sept 2021 - Jan 2022</p>
+                            <p>Description of computer network project done during university.</p>
+                        </div>
+                        
+                        <div class="project-item fade-in">
+                            <h3 class="project-title">Mini Project</h3>
+                            <p class="project-period">March 2022 - June 2022</p>
+                            <p>Description of mini project completed during studies.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -476,48 +542,55 @@
             <button class="back-button">← Back</button>
             <h1 class="title">Code Chronicles</h1>
             
-            <div class="experience-container">
-                <div class="experience-item fade-in">
-                    <h3 class="education-title">NthPhase (FTS)</h3>
-                    <p class="education-period">Description of role and responsibilities at NthPhase.</p>
+            <div class="two-column-layout">
+                <div>
+                    <h2 class="section-title">Experience</h2>
+                    <div class="experience-container">
+                        <div class="experience-item fade-in">
+                            <h3 class="education-title">NthPhase (FTS)</h3>
+                            <p class="education-period">Description of role and responsibilities at NthPhase.</p>
+                        </div>
+                        
+                        <div class="experience-item fade-in">
+                            <h3 class="education-title">FORD GTBC (FTE)</h3>
+                            <p class="education-period">Description of full-time employment at FORD GTBC.</p>
+                        </div>
+                        
+                        <div class="experience-item fade-in">
+                            <h3 class="education-title">FORD GTBC (Intern)</h3>
+                            <p class="education-period">Description of internship experience at FORD GTBC.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="experience-item fade-in">
-                    <h3 class="education-title">FORD GTBC (FTE)</h3>
-                    <p class="education-period">Description of full-time employment at FORD GTBC.</p>
-                </div>
-                
-                <div class="experience-item fade-in">
-                    <h3 class="education-title">FORD GTBC (Intern)</h3>
-                    <p class="education-period">Description of internship experience at FORD GTBC.</p>
-                </div>
-            </div>
-            
-            <h2 style="margin-top: 2rem;">Technologies</h2>
-            <div class="technologies">
-                <div class="tech-item fade-in">
-                    <span class="tech-icon">⚛️</span>
-                    <span>React</span>
-                </div>
-                <div class="tech-item fade-in">
-                    <span class="tech-icon">☕</span>
-                    <span>Java</span>
-                </div>
-                <div class="tech-item fade-in">
-                    <span class="tech-icon">🐍</span>
-                    <span>Python</span>
-                </div>
-                <div class="tech-item fade-in">
-                    <span class="tech-icon">🚀</span>
-                    <span>Node.js</span>
-                </div>
-                <div class="tech-item fade-in">
-                    <span class="tech-icon">📦</span>
-                    <span>MongoDB</span>
-                </div>
-                <div class="tech-item fade-in">
-                    <span class="tech-icon">🎨</span>
-                    <span>Tailwind CSS</span>
+                <div>
+                    <h2 class="section-title">Technologies</h2>
+                    <div class="technologies">
+                        <div class="tech-item fade-in">
+                            <span class="tech-icon">⚛️</span>
+                            <span>React</span>
+                        </div>
+                        <div class="tech-item fade-in">
+                            <span class="tech-icon">☕</span>
+                            <span>Java</span>
+                        </div>
+                        <div class="tech-item fade-in">
+                            <span class="tech-icon">🐍</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-item fade-in">
+                            <span class="tech-icon">🚀</span>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-item fade-in">
+                            <span class="tech-icon">📦</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="tech-item fade-in">
+                            <span class="tech-icon">🎨</span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -539,30 +612,29 @@
             <button class="back-button">← Back</button>
             <h1 class="title">Behind the Syntax</h1>
             
-            <div class="activities-container">
-                <div class="activity-item fade-in">
-                    <h3 class="education-title">NGO Blue Cross Volunteer</h3>
-                    <p>Description of volunteer work at Blue Cross NGO, helping animals in need.</p>
-                </div>
-                
-                <div class="activity-item fade-in">
-                    <h3 class="education-title">Animal Lover & Fosterer</h3>
-                    <p>Passionate about animal welfare and fostering animals until they find their forever homes.</p>
-                </div>
-                
-                <div class="activity-item fade-in">
-                    <h3 class="education-title">Daksh & KS Team Member</h3>
-                    <p>Active member of university tech fest (Daksh) and cultural fest (KS) teams, specifically in merch and hospitality departments.</p>
-                </div>
-                
-                <div class="activity-item fade-in">
-                    <h3 class="education-title">Photo Collage</h3>
-                    <div class="collage">
-                        <img src="https://placehold.co/150x150/lightlavender/333?text=Photo1" alt="Activity photo" class="collage-img">
-                        <img src="https://placehold.co/150x150/lightlavender/333?text=Photo2" alt="Activity photo" class="collage-img">
-                        <img src="https://placehold.co/150x150/lightlavender/333?text=Photo3" alt="Activity photo" class="collage-img">
-                        <img src="https://placehold.co/150x150/lightlavender/333?text=Photo4" alt="Activity photo" class="collage-img">
+            <div class="info-pics-layout">
+                <div class="activities-container">
+                    <div class="activity-item fade-in">
+                        <h3 class="education-title">NGO Blue Cross Volunteer</h3>
+                        <p>Description of volunteer work at Blue Cross NGO, helping animals in need.</p>
                     </div>
+                    
+                    <div class="activity-item fade-in">
+                        <h3 class="education-title">Animal Lover & Fosterer</h3>
+                        <p>Passionate about animal welfare and fostering animals until they find their forever homes.</p>
+                    </div>
+                    
+                    <div class="activity-item fade-in">
+                        <h3 class="education-title">Daksh & KS Team Member</h3>
+                        <p>Active member of university tech fest (Daksh) and cultural fest (KS) teams, specifically in merch and hospitality departments.</p>
+                    </div>
+                </div>
+                
+                <div class="collage">
+                    <img src="https://placehold.co/200x200/lightlavender/333?text=Photo1" alt="Activity photo" class="collage-img">
+                    <img src="https://placehold.co/200x200/lightlavender/333?text=Photo2" alt="Activity photo" class="collage-img">
+                    <img src="https://placehold.co/200x200/lightlavender/333?text=Photo3" alt="Activity photo" class="collage-img">
+                    <img src="https://placehold.co/200x200/lightlavender/333?text=Photo4" alt="Activity photo" class="collage-img">
                 </div>
             </div>
         </div>
