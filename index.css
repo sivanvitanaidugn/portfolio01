@@ -1,0 +1,23 @@
+.inner-page {
+    padding-top: 1rem; /* Reduce top padding */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.two-column-layout,
+.info-pics-layout {
+    margin-top: 1rem; /* Reduce top margin */
+}
+
+/* Ensure content is visible without scrolling on standard screens */
+@media (min-height: 700px) {
+    .inner-page {
+        padding-top: 3rem;
+    }
+    
+    .two-column-layout,
+    .info-pics-layout {
+        margin-top: 2rem;
+    }
+}
